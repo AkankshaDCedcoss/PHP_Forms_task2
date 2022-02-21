@@ -4,12 +4,12 @@
 <body>
 </body>
 <form method="POST" action=" <?php echo $_SERVER['PHP_SELF'];?>">
-NUMBER 1 : <input type="text" name="num1"><br>
-NUMBER 2 : <input type="text" name="num2"><br>
+NUMBER 1 : <input type="text" name="num1" value=''><br>
+NUMBER 2 : <input type="text" name="num2" value=''><br>
 <!-- RESULT : <input type="text" name="result" value="<?php echo "Hi";?>><br> -->
 <?php echo  $res;?>
 
-  <input type="submit" value="+" name="ABC"> <input type="submit" value="-"  name="ABC"> <input type="submit" value="X"  name="ABC"> <input type="submit" value="/"  name="ABC">
+  
   
 <?php
 $x;
@@ -51,7 +51,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
    
 
     }
-    echo "<br><input type='text' name='result1' value=' $res'";
+    echo "RESULT :<input type='text' name='result1' value=' $res'><br> ";
 }
     
   else {
@@ -60,6 +60,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
   
 ?>
+<input type="submit" value="+" name="ABC"> <input type="submit" value="-"  name="ABC"> <input type="submit" value="X"  name="ABC"> <input type="submit" value="/"  name="ABC">
 
 
 
