@@ -9,44 +9,41 @@
 </form>
 
 <?php
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+if (isset($_POST['unit'])) {
   
-  $eunit = $_REQUEST['unit'];
-  if (isset($eunit)) {
+  $eunit = $_POST['unit'];
+ 
 
                 $bill=0;
                 if($eunit<=50)
                 {
                     $bill=$eunit * 3.50;
-                    echo "Your Bill is : ". $bill;
+                   
                 }
-                else{
-                    if($eunit >=51 && $eunit <= 150)
+                
+                elseif($eunit >50 && $eunit <= 150)
                     {
-                        $bill=$eunit * 4;
-                        echo "Your Bill is : " .$bill;
-                    }
-                    else{
-                        if($eunit >=151 && $eunit <= 250)
-                        {
-                            $bill=$eunit * 5.20;
-                            echo "Your Bill is : " .$bill;
-                        }
-                        else
-                        {
-                            $bill=$eunit * 6.50;
-                            echo "Your Bill is :  $bill";
-                        }
+                        $fBill=$eunit -50;
+                        $bill=50 * 3.50 + $fBill *4.00;
                         
                     }
+                elseif($eunit >=151 && $eunit <= 250)
+                        {
+                            $fBill=$eunit-150;
+                            $bill=$fBill * 5.20 + 50*3.50 + 100*4.00;
+                           
+                        }
+                else
 
-                }
-
-
-    
-  } else {
-    echo "INVALID";
-  }
+                        {
+                            $fBill=$eunit-250;
+                            $bill=$fBill * 6.50 + 50*3.50 + 100*4.00 + 100 * 5.20;
+                           
+                       
+                        }
+                        
+                        echo "Your Bill is :  $bill"; 
+                    
 }
 ?>
 </body>
